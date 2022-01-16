@@ -19,7 +19,8 @@ import BoardAdmin from "./components/Board/BoardAdmin";
 import EventBus from "./common/EventBus";
 import CompteRendu from "./components/compteRendu/CompteRendu";
 
-import { getCurrentUser } from "./services/auth.service";
+// import { getCurrentUser } from "./services/auth.service";  
+  
 import ActionsAgents from "./components/ActionsAgents/ActionsAgents";
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
