@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { getCurrentUser } from "../../services/auth.service";
 import { gql, useQuery } from "@apollo/client";
 
@@ -8,7 +8,7 @@ import './dateVisite.scss'
 
 
 const ActionsAgents: React.FC = () => {
-  const [content, setContent] = useState<string>("");
+  // const [content, setContent] = useState<string>("");
   const currentUser = getCurrentUser();
 
   

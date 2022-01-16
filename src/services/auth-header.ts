@@ -1,7 +1,4 @@
-import {
-  default as axios,
-  AxiosRequestHeaders,
-} from 'axios';
+import { AxiosRequestHeaders } from 'axios';
 
 export default function authHeader(): AxiosRequestHeaders {
     const userStr = localStorage.getItem("user");

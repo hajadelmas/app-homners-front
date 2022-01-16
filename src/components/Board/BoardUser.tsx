@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { getUserBoard } from "../../services/user.service";
+import React, { useEffect } from "react";
+// import { getUserBoard } from "../../services/user.service";
 import { getCurrentUser } from "../../services/auth.service";
 import FicheCommerciale from "../FicheCommerciale/FicheCommerciale";
 import { gql, useQuery } from "@apollo/client";
@@ -8,28 +8,28 @@ import './BoardUser.scss'
 
 
 const BoardUser: React.FC = () => {
-  const [content, setContent] = useState<string>("");
+  // const [content, setContent] = useState<string>("");
   const currentUser = getCurrentUser();
 
   
 
 
   useEffect(() => {
-    getUserBoard().then(
-      (response) => {
-        setContent(response.data);
-      },
-      (error) => {
-        const _content =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
+    // getUserBoard().then(
+    //   (response) => {
+    //     setContent(response.data);
+    //   },
+    //   (error) => {
+    //     const _content =
+    //       (error.response &&
+    //         error.response.data &&
+    //         error.response.data.message) ||
+    //       error.message ||
+    //       error.toString();
 
-        setContent(_content);
-      }
-    );
+    //     setContent(_content);
+    //   }
+    // );
 
     
 

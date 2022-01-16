@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { getCurrentUser } from "../../services/auth.service";
 
 import "./fiche.scss"
