@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getCurrentUser } from "../../services/auth.service";
 import { gql, useQuery } from "@apollo/client";
+import { Helmet } from "react-helmet";
 
 
 
@@ -77,7 +78,10 @@ const ActionsAgents: React.FC = () => {
   return (
     <>  
       <div style={{ marginTop: "5em" }}>
-        <h1 style={{ fontSize: "5rem" }}>Actions ⚙️</h1>
+      <Helmet>
+        <title>Actions agents</title>
+      </Helmet>
+        <h1 style={{ fontSize: "5rem" }}>Actions</h1>
 
       <table style={{ marginTop: "5em" }}>
             <caption> <h3>Tableau synthétique</h3> </caption>

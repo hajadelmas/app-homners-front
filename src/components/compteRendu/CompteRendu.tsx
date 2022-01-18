@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { getCurrentUser } from "../../services/auth.service";
 import { gql, useQuery } from "@apollo/client";
-
+import { Helmet } from "react-helmet";
 
 
 import './compte_rendu.scss'
@@ -62,7 +62,10 @@ const CompteRendu: React.FC = () => {
   return (
     <>  
       <div style={{ marginTop: "5em" }}>
-        <h1 style={{ fontSize: "8rem" }}>Comptes rendus 📝</h1>
+      <Helmet>
+        <title>Comptes rendus</title>
+      </Helmet>
+        <h1 style={{ fontSize: "8rem" }}>Comptes rendus</h1>
         {
             collection.map((el:any, index: number) => (
                 <div key={index} style={{lineHeight: ".5" }} className="box">

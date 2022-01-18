@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { login } from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import Logo from '../images/logo-homners.png'
+import Helmet from "react-helmet";
 // import { useHistory } from "react-router-dom";
 
 // interface RouterProps {
@@ -39,7 +40,7 @@ const Login: React.FC = () => {
 
     login(username, password).then(
       () => {
-        navigate("/user");
+        navigate("/espace");
         window.location.reload();
       },
       (error) => {
@@ -58,10 +59,13 @@ const Login: React.FC = () => {
 
   return (
     <div className="col-md-12">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="card card-container">
         <img
           src={Logo}
-          alt="profile-img"
+          alt="logo homners"
           className="profile-img-card"
         />
         <Formik
@@ -90,12 +94,12 @@ const Login: React.FC = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group " style={{ display: "flex", justifyContent: "center", marginTop: "1em"}}>
               <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
                 {loading && (
-                  <span className="spinner-border spinner-border-sm"></span>
+                  <span className="spinner-border spinner-border-sm" style={{ marginRight: "1em" }}></span>
                 )}
-                <span>Connexion</span>
+                <span >Connexion</span>
               </button>
             </div>
 

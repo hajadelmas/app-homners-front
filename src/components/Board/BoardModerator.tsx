@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import Bienvenue from "../Bienvenue";
 
-import { getUserBoard } from "../../services/user.service";
+// import { getUserBoard } from "../../services/user.service";
 
 const BoardModerator: React.FC = () => {
-  const [content, setContent] = useState<string>("");
+  // const [content, setContent] = useState<string>("");
 
   useEffect(() => {
-    getUserBoard().then(
-      (response) => {
-        setContent(response.data);
-      },
-      (error) => {
-        const _content =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
+    // getUserBoard().then(
+    //   (response) => {
+    //     setContent(response.data);
+    //   },
+    //   (error) => {
+    //     const _content =
+    //       (error.response &&
+    //         error.response.data &&
+    //         error.response.data.message) ||
+    //       error.message ||
+    //       error.toString();
 
-        setContent(_content);
-      }
-    );
+    //     setContent(_content);
+    //   }
+    // );
   }, []);
 
   return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
-    </div>
+    <>
+        <Bienvenue />
+    </>
   );
 };
 

@@ -25,6 +25,7 @@ import ActionsAgents from "./components/ActionsAgents/ActionsAgents";
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import "./App.scss";
+import Espace from "./components/Espace/Espace";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -62,26 +63,28 @@ const App: React.FC = () => {
 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav_custom">
         <Container>
-        <Navbar.Brand href="#home">Homners Application</Navbar.Brand>
+        <Navbar.Brand>
+          Homners Application
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
 
           <Nav className="me-auto">
-          {showModeratorBoard && (
+          {/* {showModeratorBoard && (
                     <li className="nav-item">
                     <Link to={"/mod"} className="nav-link">
                         Moderator Board
                     </Link>
                     </li>
-                )}
+                )} */}
 
                 {showAdminBoard && (
                     <>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to={"/admin"} className="nav-link">
                         Admin Board
                         </Link>
-                    </li>
+                    </li> */}
                     
                     <li className="nav-item">
                         <Link to={"/register"} className="nav-link">
@@ -95,18 +98,18 @@ const App: React.FC = () => {
                 {currentUser && (
                     <>
                     <li className="nav-item">
-                        <Link to={"/user"} className="nav-link">
-                        Votre Espace
+                        <Link to={"/espace"} className="nav-link">
+                        Votre Espace 🚀
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link to={"/comptes-rendus"} className="nav-link">
-                        Comptes-rendus
+                        Comptes-rendus 📝
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link to={"/actions-agents"} className="nav-link">
-                        Actions de l'agent
+                        Actions de l'agent ⚙️
                         </Link>
                     </li>
                     </>
@@ -124,7 +127,7 @@ const App: React.FC = () => {
               {/* <a href="/login" className="nav-link" onClick={logOut}>
                 Se deconnecter
               </a> */}
-              <Link to={"/login"} className="nav-link" onClick={logOut}>
+              <Link to={"/login"} className="nav-link box2" onClick={logOut}>
                 Se déconnecter
               </Link>
             </li>
@@ -132,7 +135,7 @@ const App: React.FC = () => {
         ) : (
           <Nav className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link to={"/login"} className="nav-link">
+              <Link to={"/login"} className="nav-link box2">
                 Se connecter
               </Link>
             </li>
@@ -156,6 +159,7 @@ const App: React.FC = () => {
           <Route path="/register/*" element={<Register />} />
           <Route path="/profile/*" element={<Profile />} />
           <Route path="/user" element={<BoardUser />} />
+          <Route path="/espace" element={<Espace />} />
           <Route path="/mod" element={<BoardModerator />} />
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/comptes-rendus" element={<CompteRendu />} />

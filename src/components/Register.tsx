@@ -7,6 +7,8 @@ import { register } from "../services/auth.service";
 
 import { gql, useQuery } from "@apollo/client";
 
+import { Helmet } from "react-helmet";
+
 const Register: React.FC = () => {
   const [successful, setSuccessful] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
@@ -87,12 +89,15 @@ const Register: React.FC = () => {
 
   return (
     <div className="col-md-12">
+      <Helmet>
+        <title>Enregistrement</title>
+      </Helmet>
       <div className="card card-container">
-        <img
+        {/* <img
           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           alt="profile-img"
           className="profile-img-card"
-        />
+        /> */}
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}

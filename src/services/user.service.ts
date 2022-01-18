@@ -5,7 +5,7 @@ import {
 
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8080/api/test/";
+const API_URL = "https://app-homners-back.herokuapp.com/api/test/";
 
 const requestConfig: AxiosRequestConfig = {headers: authHeader()}
 
