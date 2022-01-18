@@ -121,9 +121,12 @@ const App: React.FC = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
+              {/* <a href="/login" className="nav-link" onClick={logOut}>
                 Se deconnecter
-              </a>
+              </a> */}
+              <Link to={"/login"} className="nav-link" onClick={logOut}>
+                Se déconnecter
+              </Link>
             </li>
           </Nav>
         ) : (
@@ -148,7 +151,7 @@ const App: React.FC = () => {
       <div className="container mt-3">
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login/*" element={<Login />} />
           <Route path="/register/*" element={<Register />} />
           <Route path="/profile/*" element={<Profile />} />
