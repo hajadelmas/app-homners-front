@@ -95,7 +95,7 @@ const Login: React.FC = () => {
             </div>
 
             <div className="form-group " style={{ display: "flex", justifyContent: "center", marginTop: "1em"}}>
-              <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+              <button type="submit" className="btn btn-primary btn-block box2" disabled={loading}>
                 {loading && (
                   <span className="spinner-border spinner-border-sm" style={{ marginRight: "1em" }}></span>
                 )}

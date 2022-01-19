@@ -99,17 +99,17 @@ const App: React.FC = () => {
                     <>
                     <li className="nav-item">
                         <Link to={"/espace"} className="nav-link">
-                        Votre Espace 🚀
+                        🚀 Votre Espace 
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link to={"/comptes-rendus"} className="nav-link">
-                        Comptes-rendus 📝
+                        📝 Comptes-rendus 
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link to={"/actions-agents"} className="nav-link">
-                        Actions de l'agent ⚙️
+                        ⚙️ Actions de l'agent 
                         </Link>
                     </li>
                     </>

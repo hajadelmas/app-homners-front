@@ -16,7 +16,7 @@ const Bienvenue: React.FC = () => {
     <div style={{ height: "60vh", width: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
       <h1>Bienvenue sur l'application Homners</h1>
       <div className="lienAnnonce" style={{ marginTop: "2em" }}>
-        {UserOrNot === undefined ? 
+        {UserOrNot === null ? 
         <Link to={"/login"}>
           <h2 >Connectez-vous 🚀</h2>
         </Link>  
