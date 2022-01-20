@@ -142,7 +142,7 @@ const Register: React.FC = () => {
 
                 <div className="form-group">
                   <label htmlFor="title"> Bien à vendre </label>
-                  <Field as="select" name="title">
+                  <Field as="select" name="title" value={data && data.allOperations[0].titre}>
                     {
                       data && data.allOperations.map((el:any) => (
                         <option key={el.titre} value={el.titre}>{el.titre}</option>
