@@ -18,7 +18,8 @@ import { setContext } from "@apollo/client/link/context";
 
 
 
-const token = 'c9e4af15fd364a7dd10d7f4446945a';
+// const token = 'c9e4af15fd364a7dd10d7f4446945a';
+const token = '4dd9a6f6c37bd743db7ba5a73d7221'
 const link = new HttpLink({
   uri: 'https://graphql.datocms.com/',
 });
