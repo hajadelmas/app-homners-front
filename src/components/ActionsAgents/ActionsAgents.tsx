@@ -41,6 +41,7 @@ const ActionsAgents: React.FC = () => {
     
     // DATA
     const { data } = useQuery(GET_TITRE, { variables: { titre: titreName } });
+    console.log(titreName)
 
     let collectionVisite: string[] = [];
     const getDatesVisite = () => {
