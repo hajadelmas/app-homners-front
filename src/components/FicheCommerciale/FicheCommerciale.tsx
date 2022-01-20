@@ -30,16 +30,10 @@ const FicheCommerciale: React.FC = () => {
       reference
       procedureDiligente
       prix
-      photos {
-        responsiveImage {
-          src
-        }
-      }
       nombrePieces
       nombreLotCopropriete
       neufAncien
       modeChauffage
-      lienLeboncoin
       jardin
       description
       etatGeneral
