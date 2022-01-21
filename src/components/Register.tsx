@@ -13,6 +13,17 @@ const Register: React.FC = () => {
   const [successful, setSuccessful] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
 
+  const ALL_OPERATION = gql`
+    query AllOperations($orderBy: [OperationModelOrderBy]) {
+      allOperations(orderBy: $orderBy) {
+        titre
+      }
+    }
+  `
+  
+  const { data } = useQuery(ALL_OPERATION, {variables: { orderBy : "_createdAt_ASC" }});
+
+
   interface Person {
     username: string,
     email: string,
@@ -24,18 +35,9 @@ const Register: React.FC = () => {
     username: "",
     email: "",
     password: "",
-    title: ""
+    title: data && data.allOperations[0].titre
   }
 
-  const ALL_OPERATION = gql`
-    query AllOperations {
-      allOperations {
-        titre
-      }
-    }
-  `
-  
-  const { data } = useQuery(ALL_OPERATION);
 
   
 
@@ -86,6 +88,11 @@ const Register: React.FC = () => {
       }
     );
   };
+
+  // const handleTest = (formValue: Person) => {
+  //   const title = formValue
+  //   console.log(title)
+  // }
 
   return (
     <div className="col-md-12">
@@ -142,7 +149,7 @@ const Register: React.FC = () => {
 
                 <div className="form-group">
                   <label htmlFor="title"> Bien à vendre </label>
-                  <Field as="select" name="title" value={data && data.allOperations[0].titre}>
+                  <Field as="select" name="title">
                     {
                       data && data.allOperations.map((el:any) => (
                         <option key={el.titre} value={el.titre}>{el.titre}</option>
