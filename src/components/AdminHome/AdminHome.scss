@@ -1,0 +1,25 @@
+
+
+.numbers_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
+
+
+    .numbers_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1em;
+
+        span {
+            font-size: 7rem;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+    }
+}

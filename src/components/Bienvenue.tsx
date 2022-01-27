@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getCurrentUser } from "../services/auth.service";
 
+
 const Bienvenue: React.FC = () => {
 
   const UserOrNot = getCurrentUser()
 
   useEffect(() => {
-    
+    // const user = getCurrentUser().roles
     
   }, []);
   
@@ -20,7 +21,11 @@ const Bienvenue: React.FC = () => {
         <Link to={"/login"}>
           <h2 >Connectez-vous 🚀</h2>
         </Link>  
-      : 
+      : UserOrNot.roles.includes("ROLE_ADMIN") ?
+        <Link to={"/espace"}>
+          <h2 >Accéder à votre espace Admin 🚀</h2>
+        </Link> 
+        :
         <Link to={"/espace"}>
           <h2 >Accéder à votre espace 🚀</h2>
         </Link> 

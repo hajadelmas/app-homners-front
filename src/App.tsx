@@ -78,7 +78,7 @@ const App: React.FC = () => {
                     </li>
                 )} */}
 
-                {showAdminBoard && (
+                {currentUser && (showAdminBoard ? (
                     <>
                     {/* <li className="nav-item">
                         <Link to={"/admin"} className="nav-link">
@@ -93,9 +93,27 @@ const App: React.FC = () => {
                     </li>
                     </>
                     
+                ) : 
+                <>
+                <li className="nav-item">
+                    <Link to={"/espace"} className="nav-link">
+                    🚀 Votre Espace 
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to={"/comptes-rendus"} className="nav-link">
+                    📝 Comptes-rendus 
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to={"/actions-agents"} className="nav-link">
+                    ⚙️ Actions de l'agent 
+                    </Link>
+                </li>
+                </>
                 )}
 
-                {currentUser && (
+                {/* {currentUser && (
                     <>
                     <li className="nav-item">
                         <Link to={"/espace"} className="nav-link">
@@ -113,7 +131,7 @@ const App: React.FC = () => {
                         </Link>
                     </li>
                     </>
-                )}
+                )} */}
           </Nav>
 
           {currentUser ? (

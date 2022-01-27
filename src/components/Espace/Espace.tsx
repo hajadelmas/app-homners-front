@@ -7,36 +7,17 @@ import { ExternalLink } from "react-external-link";
 import { Helmet } from "react-helmet";
 
 import '../../App.scss'
+import AdminHome from "../AdminHome/AdminHome";
 
 
 const Espace: React.FC = () => {
-  // const [content, setContent] = useState<string>("");
   const currentUser = getCurrentUser();
 
   
 
 
   useEffect(() => {
-    // getUserBoard().then(
-    //   (response) => {
-    //     setContent(response.data);
-    //   },
-    //   (error) => {
-    //     const _content =
-    //       (error.response &&
-    //         error.response.data &&
-    //         error.response.data.message) ||
-    //       error.message ||
-    //       error.toString();
-
-    //     setContent(_content);
-    //   }
-    // );
-
     
-
-    // let idMaison = data.operation.id
-    // console.log(idMaison)
     
   }, []);
 
@@ -73,6 +54,16 @@ const Espace: React.FC = () => {
         <h1 style={{ fontSize: "10rem" }}>{" " + currentUser.username}.  </h1>
       </div>
 
+      {
+        currentUser.roles.includes("ROLE_ADMIN") ? 
+
+        <AdminHome /> 
+
+        :
+
+
+      <>
+
       <div className="box">
         <h2 style={{ fontSize: "3rem" }}>Date dernière remontée annonce 🔝</h2>
         <p style={{ fontSize: "1.5rem", marginLeft: ".3em" }}>Fait le {dateRemontee} 📝</p>
@@ -96,8 +87,9 @@ const Espace: React.FC = () => {
         <FicheCommerciale />
       </div>
       
+      </>
       
-      
+      }
     </>
   );
 };
