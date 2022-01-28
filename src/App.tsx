@@ -63,7 +63,7 @@ const App: React.FC = () => {
 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav_custom">
         <Container>
-        <Navbar.Brand>
+        <Navbar.Brand href="/home">
           Homners Application
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

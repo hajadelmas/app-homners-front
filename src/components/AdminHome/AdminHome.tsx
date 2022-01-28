@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
 import CountUp from 'react-countup';
 
-
+import '../../App.scss'
 import "./AdminHome.scss"
+import { Button } from "react-bootstrap";
 
 
 const AdminHome: React.FC = () => {
@@ -14,11 +15,14 @@ const AdminHome: React.FC = () => {
     
   }, []);
 
-  // let date = new Date();
-  // let FirstDayOfTheMonth = new Date(date.getFullYear(), date.getMonth(), +2).toISOString();
-  let FirstDayOfTheMonth = "2021-01-01T14:48:00.000Z"
+  let date = new Date();
+  // let FirstDayOfTheMonth = 
+  // let FirstDayOfTheYear = "2022-02-02T14:48:00.000Z" 
+  let FirstDayCurrentYear = new Date(date.getFullYear(), date.getMonth(), +2).toISOString()
+  let SinceTheBeginning = new Date(date.getFullYear()).toISOString()
 
-  console.log("TIME == " + FirstDayOfTheMonth)
+  // console.log("TIME MONTH == " + FirstDayOfTheMonth)
+  console.log("TIME YEAR == " + FirstDayCurrentYear)
 
   const GET_ALL = gql`
     query AllOperations($filter: OperationModelFilter, $filter2: CompteRenduModelFilter, $filter3: DateVisiteModelFilter) {
@@ -38,7 +42,10 @@ const AdminHome: React.FC = () => {
     
     // DATA
     // const { data } = useQuery(GET_TITRE, { variables: { titre: titreName } });
-    const { data } = useQuery(GET_ALL, { variables: { filter: { "createdAt": { "gt": FirstDayOfTheMonth }}, filter2: { "createdAt": { "gt": FirstDayOfTheMonth } }, filter3: { "createdAt": { "gt": FirstDayOfTheMonth }} }});
+    const { data, refetch } = useQuery(GET_ALL, { variables: { 
+      filter: { "createdAt": { "gt": FirstDayCurrentYear }},
+      filter2: { "createdAt": { "gt": FirstDayCurrentYear } },
+      filter3: { "createdAt": { "gt": FirstDayCurrentYear }} }});
     // const { data } = useQuery(GET_ALL);
 
 
@@ -90,7 +97,8 @@ const AdminHome: React.FC = () => {
     console.log("visite" + nombreVisite)
 
   // function changeFirstDayToYear() {
-  //   FirstDayOfTheMonth = 
+  //   FirstDayOfTheMonth = "2022-02-02T14:48:00.000Z"
+  //   console.log(FirstDayOfTheMonth)
   // }
 
     // let collectionVisite: string[] = [];
@@ -128,19 +136,25 @@ const AdminHome: React.FC = () => {
     // console.log(firstDay.toISOString())
 
 
-
-
-
-
-
-
-
-
-
   return (
     <>  
-      
+    <div className="box">
+      <div style={{ width: "100%", display: "flex", justifyContent: "center", margin:"1.5em 0"  }}>
+          <Button className="buttonDate" onClick={() => { refetch({ 
+            filter: { "createdAt": { "gt": FirstDayCurrentYear }},
+            filter2: { "createdAt": { "gt": FirstDayCurrentYear } },
+            filter3: { "createdAt": { "gt": FirstDayCurrentYear }} })} }>
+              Cette année
+          </Button>
+          <Button className="buttonDate" onClick={() => { refetch({ 
+            filter: { "createdAt": { "gt": SinceTheBeginning }},
+            filter2: { "createdAt": { "gt": SinceTheBeginning } },
+            filter3: { "createdAt": { "gt": SinceTheBeginning }} })} }>
+              Depuis le début
+          </Button>
+      </div>
       <div className="numbers_container">
+       
           <div className="numbers_box">
            <CountUp duration={.5} end={nombreCompte} />
            <p>Comptes rendus</p>
@@ -158,6 +172,10 @@ const AdminHome: React.FC = () => {
            <p>Biens en vente</p>
           </div>
       </div>
+    </div>
+
+
+       
       
     </>
   );

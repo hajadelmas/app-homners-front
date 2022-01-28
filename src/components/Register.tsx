@@ -45,26 +45,26 @@ const Register: React.FC = () => {
     username: Yup.string()
       .test(
         "len",
-        "The username must be between 3 and 20 characters.",
+        "Le prénom doit être compris entre 3 et 20 caractères.",
         (val: any) =>
           val &&
           val.toString().length >= 3 &&
           val.toString().length <= 20
       )
-      .required("This field is required!"),
+      .required("Ce champs est requis!"),
     email: Yup.string()
-      .email("This is not a valid email.")
-      .required("This field is required!"),
+      .email("L'email est invalide")
+      .required("Ce champs est requis!"),
     password: Yup.string()
       .test(
         "len",
-        "The password must be between 6 and 40 characters.",
+        "Le mot de passe doit être compris entre 3 et 20 caractères",
         (val: any) =>
           val &&
           val.toString().length >= 6 &&
           val.toString().length <= 40
       )
-      .required("This field is required!"),
+      .required("Ce champs est requis!"),
   });
 
   const handleRegister = (formValue: Person) => {
@@ -114,7 +114,7 @@ const Register: React.FC = () => {
             {!successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username"> Username </label>
+                  <label htmlFor="username"> Prénom </label>
                   <Field name="username" type="text" className="form-control" />
                   <ErrorMessage
                     name="username"
@@ -134,7 +134,7 @@ const Register: React.FC = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password"> Password </label>
+                  <label htmlFor="password"> Mot de passe </label>
                   <Field
                     name="password"
                     type="password"
@@ -167,8 +167,8 @@ const Register: React.FC = () => {
 
 
 
-                <div className="form-group">
-                  <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                <div className="form-group" style={{ marginTop: "1.5em" }}>
+                  <button type="submit" className="btn btn-primary btn-block">Enregistrer</button>
                 </div>
               </div>
             )}

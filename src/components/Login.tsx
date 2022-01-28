@@ -6,6 +6,8 @@ import { login } from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import Logo from '../images/logo-homners.png'
 import Helmet from "react-helmet";
+
+import './Login.scss'
 // import { useHistory } from "react-router-dom";
 
 // interface RouterProps {
@@ -99,7 +101,7 @@ const Login: React.FC = () => {
                 {loading && (
                   <span className="spinner-border spinner-border-sm" style={{ marginRight: "1em" }}></span>
                 )}
-                <span >Connexion</span>
+                <span className="connectButton">Connexion</span>
               </button>
             </div>
 
