@@ -33,6 +33,7 @@ const Espace: React.FC = () => {
         slug
         lienAnnonce
         nombreAppels
+        nombreDeVues
       }
     }
   `
@@ -79,6 +80,10 @@ const Espace: React.FC = () => {
 
       <div className="box">
         <h2 style={{ fontSize: "3rem" }}> <span style={{ padding: "0px 5px", border: "4px solid green" }}>{data && data.operation.nombreAppels}</span> personnes ont appelés pour votre bien ☎️</h2>
+      </div>
+
+      <div className="box">
+        <h2 style={{ fontSize: "3rem" }}> <span style={{ padding: "0px 5px", border: "4px solid green" }}>{data && data.operation.nombreDeVues}</span> personnes ont vues votre bien 👀</h2>
       </div>
 
 
