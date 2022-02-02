@@ -16,13 +16,11 @@ const AdminHome: React.FC = () => {
   }, []);
 
   let date = new Date();
-  // let FirstDayOfTheMonth = 
-  // let FirstDayOfTheYear = "2022-02-02T14:48:00.000Z" 
-  let FirstDayCurrentYear = new Date(date.getFullYear(), date.getMonth(), +2).toISOString()
-  let SinceTheBeginning = new Date(date.getFullYear()).toISOString()
+  
+  let FirstDayOfTheMonth = new Date(date.getFullYear(), date.getMonth(), 1).toISOString()
+  console.log('date depuis cette année : ' + FirstDayOfTheMonth)
 
-  // console.log("TIME MONTH == " + FirstDayOfTheMonth)
-  console.log("TIME YEAR == " + FirstDayCurrentYear)
+  let SinceTheBeginning = new Date(date.getFullYear()).toISOString()
 
   const GET_ALL = gql`
     query AllOperations($filter: OperationModelFilter, $filter2: CompteRenduModelFilter, $filter3: DateVisiteModelFilter) {
@@ -41,12 +39,10 @@ const AdminHome: React.FC = () => {
   `
     
     // DATA
-    // const { data } = useQuery(GET_TITRE, { variables: { titre: titreName } });
     const { data, refetch } = useQuery(GET_ALL, { variables: { 
-      filter: { "createdAt": { "gt": FirstDayCurrentYear }},
-      filter2: { "createdAt": { "gt": FirstDayCurrentYear } },
-      filter3: { "createdAt": { "gt": FirstDayCurrentYear }} }});
-    // const { data } = useQuery(GET_ALL);
+      filter: { "createdAt": { "gt": FirstDayOfTheMonth }},
+      filter2: { "createdAt": { "gt": FirstDayOfTheMonth } },
+      filter3: { "createdAt": { "gt": FirstDayOfTheMonth }} }});
 
 
 
@@ -70,7 +66,6 @@ const AdminHome: React.FC = () => {
     }
     getValueAppel();
     let totalAppels = collectionAppels.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    // console.log("appels == " + total)
     console.log("appel == " + totalAppels)
     
 
@@ -141,10 +136,10 @@ const AdminHome: React.FC = () => {
     <div className="box">
       <div style={{ width: "100%", display: "flex", justifyContent: "center", margin:"1.5em 0"  }}>
           <Button className="buttonDate" onClick={() => { refetch({ 
-            filter: { "createdAt": { "gt": FirstDayCurrentYear }},
-            filter2: { "createdAt": { "gt": FirstDayCurrentYear } },
-            filter3: { "createdAt": { "gt": FirstDayCurrentYear }} })} }>
-              Cette année
+            filter: { "createdAt": { "gt": FirstDayOfTheMonth }},
+            filter2: { "createdAt": { "gt": FirstDayOfTheMonth } },
+            filter3: { "createdAt": { "gt": FirstDayOfTheMonth }} })} }>
+              Ce mois-ci
           </Button>
           <Button className="buttonDate" onClick={() => { refetch({ 
             filter: { "createdAt": { "gt": SinceTheBeginning }},
