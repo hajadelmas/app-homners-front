@@ -35,6 +35,11 @@ const ActionsAgents: React.FC = () => {
           date
           _updatedAt
         }
+        actionsAgents {
+          titre
+          date
+          description
+        }
       }
     }
   `
@@ -91,6 +96,7 @@ const ActionsAgents: React.FC = () => {
               <th>Date dernière remontée annonce</th>
               <td>- Le {transformDate(data && data.operation.dateRemonteAgence)}</td>
             </tr>
+
             <tr>
               <th>Dates des visites</th>
               {
@@ -99,11 +105,21 @@ const ActionsAgents: React.FC = () => {
                   ))
               }
             </tr>
+
             <tr>
               <th>Dates remplissage comptes rendus</th>
               {
                   collectionCompte.map((el:any, index: number) => (
                       <td style={{ display: "flex", flexDirection: "column" }} key={index}>- Le { transformDate(el._updatedAt)} - { el.titre }</td>
+                  ))
+              }
+            </tr>
+
+            <tr>
+              <th>Actions de l'agent</th>
+              {
+                  data && data.operation.actionsAgents.map((el:any, index: number) => (
+                      <td style={{ display: "flex", flexDirection: "column" }} key={index}>- Le { transformDate(el.date)} - { el.titre } - { el.description }</td>
                   ))
               }
             </tr>

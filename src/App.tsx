@@ -107,7 +107,7 @@ const App: React.FC = () => {
                 </li>
                 <li className="nav-item">
                     <Link to={"/actions-agents"} className="nav-link">
-                    ⚙️ Actions de l'agent 
+                    ⚙️ Actions et retours de l'agent 
                     </Link>
                 </li>
                 </>
